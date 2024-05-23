@@ -43,7 +43,7 @@ void Music_Player::run()
 		}
 		else if (option == 3) {
 			int playlistIndex;
-			cout << "Ingrese el nombre de la playlist que quieras entrar: ";
+			cout << "\nIngrese el nombre de la playlist que quieras entrar: ";
 			cin.ignore();
 			getline(cin, playlistTitle);
 			playlistIndex = myLibrary.searchPlaylist(playlistTitle);
@@ -52,6 +52,7 @@ void Music_Player::run()
 				cout << "\nRegresando al menu principal...";
 			}
 			else {
+				cout << "\nIngresando a la playlist " << playlistTitle << "...";
 				playlistOptions(myLibrary, playlistIndex);
 			}
 		}

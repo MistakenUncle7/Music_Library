@@ -1,18 +1,8 @@
 #include "List.h"
 
-Playlist::Playlist()
-{
-	head = tail = newNode = NULL;
-}
-
-Playlist::Playlist(string playlistTitle) : playlistTitle(playlistTitle)
-{
-	head = tail = newNode = NULL;
-}
-
 Playlist::~Playlist()
 {
-	while (head != NULL) {
+	while (head != nullptr) {
 		newNode = head;
 		head = newNode->next;
 		delete[] newNode;
@@ -25,17 +15,17 @@ void Playlist::addSong(string song, string artist)
 	newNode->songName = song;
 	newNode->artist = artist;
 
-	if (head == NULL){
+	if (head == nullptr){
 		head = newNode;
 		tail = newNode;
-		newNode->prev = NULL;
-		newNode->next = NULL;
+		newNode->prev = nullptr;
+		newNode->next = nullptr;
 	}
 	else {
 		newNode->prev = tail;
 		tail->next = newNode;
 		tail = newNode;
-		tail->next = NULL;
+		tail->next = nullptr;
 		/* Elementos lista circular */
 		newNode->next = head;
 		head->prev = newNode; // Revisar si es correcto para la lista circular
@@ -44,12 +34,12 @@ void Playlist::addSong(string song, string artist)
 
 int Playlist::search(string song)
 { // Revisar si es mejor manejar errores de codigo retornando -1 o 0
-	if (head == NULL) {
+	if (head == nullptr) {
 		return -1; // No hay canciones en esta playlist
 	}
 	else {
 		newNode = head;
-		while (newNode != NULL) {
+		while (newNode != nullptr) {
 			if (newNode->songName == song) {
 				return 0; // Existe la cancion en la playlist
 			}
@@ -69,13 +59,13 @@ void Playlist::remove(string song)
 	Track removed;
 	int existSong = search(song);
 
-	if (head == NULL) {
+	if (head == nullptr) {
 		cout << "La playlist esta vacia. No se puede eliminar niguna canción" << endl;
 		cout << "Regresando al menu principal...";
 	}
 	else {
 		newNode = head;
-		while (newNode != NULL) {
+		while (newNode != nullptr) {
 			if (existSong == 0) {
 				removed.songName = newNode->songName;
 				removed.artist = newNode->artist;
@@ -100,13 +90,13 @@ void Playlist::remove(string song)
 
 void Playlist::show()
 {
-	if (head == NULL) {
+	if (head == nullptr) {
 		cout << "La playlist esta vacia" << endl;
 	}
 	else {
 		newNode = head;
 		cout << "\nCanciones dentro de esta playlist:" << endl;
-		while (newNode != NULL) {
+		while (newNode != nullptr) {
 			cout << "Cancion: " << newNode->songName << endl;
 			cout << "Artista: " << newNode->artist << "\n" << endl;
 			if (newNode == tail) {

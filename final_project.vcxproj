@@ -130,12 +130,14 @@
     <ClInclude Include="src\Array.h" />
     <ClInclude Include="src\List.h" />
     <ClInclude Include="src\Music_Player.h" />
+    <ClInclude Include="src\Track.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Array.cpp" />
     <ClCompile Include="src\List.cpp" />
     <ClCompile Include="src\Music_Player.cpp" />
     <ClCompile Include="src\Source.cpp" />
+    <ClCompile Include="src\Track.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
