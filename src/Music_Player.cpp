@@ -16,8 +16,8 @@ void Music_Player::run()
 	cout << "\nIngresando al menú principal...";
 
 	do
-	{
-		clearScreen(2);
+	{	
+		clearScreen(3);
 		option = printInitialMenu();
 		clearScreen(2);
 		cin.ignore();
@@ -29,14 +29,14 @@ void Music_Player::run()
 
 			existPlaylist = myLibrary.searchPlaylist(playlistTitle);
 			if (existPlaylist != -1) {
-				cout << "La playlist " << playlistTitle << " ya existe" << endl;
+				cout << "\nLa playlist " << playlistTitle << " ya existe" << endl;
 				cout << "\nRegresando a la selección de opciones...";
 			}
 			else {
 				Playlist myPlaylist(playlistTitle);
 
 				myLibrary.insert(myPlaylist);
-				cout << "Playlist creada exitosamente..." << endl;
+				cout << "\nPlaylist creada exitosamente..." << endl;
 			}
 		}
 		else if (option == 2) {
@@ -50,10 +50,11 @@ void Music_Player::run()
 			getline(cin, playlistTitle);
 			playlistIndex = myLibrary.searchPlaylist(playlistTitle);
 			if (playlistIndex == -1) {
-				cout << "La playlist seleccionada no existe" << endl;
+				cout << "\nLa playlist seleccionada no existe" << endl;
 				cout << "\nRegresando a la selección de opciones...";
 			}
 			else {
+				cout << "\nIngresando a la playlist " << playlistTitle << "...";
 				playlistOptions(myLibrary, playlistIndex);
 			}
 		}
@@ -137,6 +138,7 @@ void Music_Player::playlistOptions(Library& library, int playlistIndex)
 			cout << "Ingrese el nombre del artista: ";
 			getline(cin, artist);
 			library.getPlaylist(playlistIndex).addSong(songName, artist);
+			cout << "\nCanción agregada exitosamente..." << endl;
 			break;
 		case 2:
 			cout << "Ingrese el nombre de la canción que desea eliminar: ";
@@ -145,7 +147,7 @@ void Music_Player::playlistOptions(Library& library, int playlistIndex)
 			break;
 		case 3:
 			library.getPlaylist(playlistIndex).show();
-
+			pressEnterToContinue();
 			break;
 		case 4:
 			break;
@@ -153,21 +155,22 @@ void Music_Player::playlistOptions(Library& library, int playlistIndex)
 			break;
 		case 6:
 			cout << "Ingrese el nombre de la canción que desea buscar: ";
-			cin >> songName;
+			getline(cin, songName);
 			existSong = library.getPlaylist(playlistIndex).search(songName);
 			if (existSong == -1) {
 				cout << "\nNo hay canciones en esta playlist" << endl;
 				cout << "\nRegresando al menu principal..." << endl;
 			}
 			else if (existSong == 0) {
-				cout << "La canción " << songName << "se encuentra dentro de la playlist" << endl;
+				cout << "\nLa canción " << songName << "se encuentra dentro de la playlist" << endl;
 			}
 			else {
-				cout << "La canción " << songName << " no se encuentra en la playlist" << endl;
+				cout << "\nLa canción " << songName << " no se encuentra en la playlist" << endl;
 			}
+			cout << "\nRegresando al menú de opciones...";
 			break;
 		case 7:
-			cout << "\nRegresando a la biblioteca..." << endl;
+			cout << "\nRegresando al menú de opciones...";
 			break;
 		default:
 			cout << "Error. Ingrese un indice valido\n" << endl;
@@ -185,7 +188,7 @@ void Music_Player::clearScreen(int num)
 void Music_Player::pressEnterToContinue()
 {
 	cin.clear();
-	// cin.ignore(1000, '\n');
+	cin.ignore(1000, '\n');
 	cout << "\nPresiona enter para continuar...";
 	cin.get();
 }

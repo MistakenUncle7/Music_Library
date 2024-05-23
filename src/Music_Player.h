@@ -20,5 +20,4 @@ public:
 	void playlistOptions(Library&, int);
 	void clearScreen(int);
 	void pressEnterToContinue();
-private:
 };

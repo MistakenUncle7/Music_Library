@@ -59,11 +59,6 @@ void Library::printPlaylists()
 	}
 }
 
-void Library::setSize(int size)
-{
-	this->size = size;
-}
-
 int Library::getSize()
 {
 	return size;
@@ -71,7 +66,7 @@ int Library::getSize()
 
 Playlist& Library::getPlaylist(int index)
 {
-	if (index > 0 && index < getSize())
+	if (index >= 0 && index <= getSize())
 	{
 		return library[index];
 	}

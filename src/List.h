@@ -1,24 +1,18 @@
 #pragma once
+#include "Track.h"
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-struct Track
-{
-	string songName;
-	string artist;
-	Track* prev;
-	Track* next;
-};
 // Lista doblemente enlazada circular
 class Playlist
 {
 public:
-	Playlist();
-	Playlist(string);
+	Playlist() : head(nullptr), tail(nullptr), newNode(nullptr) {}
+	Playlist(string playlistTitle) : playlistTitle(playlistTitle), head(nullptr), tail(nullptr), newNode(nullptr) {}
 	~Playlist();
-	void addSong(string, string);
+	void addSong(const string, const string);
 	int search(string);
 	void remove(string);
 	void show();
