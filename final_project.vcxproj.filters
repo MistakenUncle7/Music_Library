@@ -24,6 +24,9 @@
     <ClInclude Include="src\List.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="src\Track.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Source.cpp">
@@ -36,6 +39,9 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="src\List.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Track.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

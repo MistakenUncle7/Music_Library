@@ -16,8 +16,7 @@ public:
 	void insert(Playlist);
 	void printPlaylists();
 
-	/* Setters and getters */
-	void setSize(int);
+	/* Getters */
 	int getSize();
 	Playlist& getPlaylist(int);
 private:
