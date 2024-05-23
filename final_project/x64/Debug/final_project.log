@@ -1,0 +1,4 @@
+﻿  Music_Player.cpp
+C:\Users\Santiago Avila\Desktop\Clases\Programacion y Estructura de Datos\C++\Tercer Parcial\final_project\src\Music_Player.cpp(116,1): warning C4715: 'Music_Player::printPlaylistMenu': no todas las rutas de acceso de control devuelven un valor
+C:\Users\Santiago Avila\Desktop\Clases\Programacion y Estructura de Datos\C++\Tercer Parcial\final_project\src\Music_Player.cpp(87,1): warning C4715: 'Music_Player::printInitialMenu': no todas las rutas de acceso de control devuelven un valor
+  final_project.vcxproj -> C:\Users\Santiago Avila\Desktop\Clases\Programacion y Estructura de Datos\C++\Tercer Parcial\final_project\x64\Debug\final_project.exe
