@@ -1,3 +1,5 @@
 # Ignore Visual Studio files
 *.vcxproj.user
 .vs/
+x64/Debug/
+final_project/x64/Debug/
