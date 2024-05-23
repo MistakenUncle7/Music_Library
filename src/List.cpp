@@ -9,7 +9,7 @@ Playlist::~Playlist()
 	}
 }
 
-void Playlist::addSong(string song, string artist)
+void Playlist::addSong(const string song, const string artist)
 {
 	newNode = new Track;
 	newNode->songName = song;
@@ -33,7 +33,7 @@ void Playlist::addSong(string song, string artist)
 }
 
 int Playlist::search(string song)
-{ // Revisar si es mejor manejar errores de codigo retornando -1 o 0
+{
 	if (head == nullptr) {
 		return -1; // No hay canciones en esta playlist
 	}

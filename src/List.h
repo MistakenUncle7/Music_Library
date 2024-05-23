@@ -12,7 +12,7 @@ public:
 	Playlist() : head(nullptr), tail(nullptr), newNode(nullptr) {}
 	Playlist(string playlistTitle) : playlistTitle(playlistTitle), head(nullptr), tail(nullptr), newNode(nullptr) {}
 	~Playlist();
-	void addSong(string, string);
+	void addSong(const string, const string);
 	int search(string);
 	void remove(string);
 	void show();

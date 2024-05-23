@@ -13,7 +13,7 @@ void Music_Player::run()
 	int option;
 
 	cout << "\n||| Bienvenido al reproductor de Musica |||\n" << endl;
-	cout << "\nIngresando al menu principal..." << endl;
+	cout << "\nIngresando al menu principal...";
 
 	do
 	{
@@ -33,7 +33,7 @@ void Music_Player::run()
 			else {
 				Playlist myPlaylist(playlistTitle);
 				myLibrary.insert(myPlaylist);
-				cout << "Playlist creada exitosamente...";
+				cout << "\nPlaylist creada exitosamente...";
 			}
 		}
 		else if (option == 2) {
@@ -48,7 +48,7 @@ void Music_Player::run()
 			getline(cin, playlistTitle);
 			playlistIndex = myLibrary.searchPlaylist(playlistTitle);
 			if (playlistIndex == -1) {
-				cout << "La playlist seleccionada no existe" << endl;
+				cout << "La playlist " << playlistTitle << " seleccionada no existe" << endl;
 				cout << "\nRegresando al menu principal...";
 			}
 			else {
@@ -184,6 +184,7 @@ void Music_Player::clearScreen(int num)
 void Music_Player::pressEnterToContinue()
 {
 	cin.clear();
+	cin.ignore(1000, '\n');
 	cout << "\nPresiona enter para continuar...";
 	cin.get();
 }
