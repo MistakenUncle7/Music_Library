@@ -17,7 +17,7 @@ void Music_Player::run()
 
 	do
 	{	
-		clearScreen(3);
+		clearScreen(2);
 		option = printInitialMenu();
 		clearScreen(2);
 		cin.ignore();
@@ -36,7 +36,7 @@ void Music_Player::run()
 				Playlist myPlaylist(playlistTitle);
 
 				myLibrary.insert(myPlaylist);
-				cout << "\nPlaylist creada exitosamente..." << endl;
+				cout << "\nPlaylist creada exitosamente...";
 			}
 		}
 		else if (option == 2) {
@@ -138,10 +138,10 @@ void Music_Player::playlistOptions(Library& library, int playlistIndex)
 			cout << "Ingrese el nombre del artista: ";
 			getline(cin, artist);
 			library.getPlaylist(playlistIndex).addSong(songName, artist);
-			cout << "\nCanción agregada exitosamente..." << endl;
+			cout << "\nCanción agregada exitosamente...";
 			break;
 		case 2:
-			cout << "Ingrese el nombre de la canción que desea eliminar: ";
+			cout << "\nIngrese el nombre de la canción que desea eliminar: ";
 			getline(cin, songName);
 			library.getPlaylist(playlistIndex).remove(songName);
 			break;
@@ -154,12 +154,11 @@ void Music_Player::playlistOptions(Library& library, int playlistIndex)
 		case 5:
 			break;
 		case 6:
-			cout << "Ingrese el nombre de la canción que desea buscar: ";
+			cout << "\nIngrese el nombre de la canción que desea buscar: ";
 			getline(cin, songName);
 			existSong = library.getPlaylist(playlistIndex).search(songName);
 			if (existSong == -1) {
 				cout << "\nNo hay canciones en esta playlist" << endl;
-				cout << "\nRegresando al menu principal..." << endl;
 			}
 			else if (existSong == 0) {
 				cout << "\nLa canción " << songName << "se encuentra dentro de la playlist" << endl;
@@ -170,10 +169,10 @@ void Music_Player::playlistOptions(Library& library, int playlistIndex)
 			cout << "\nRegresando al menú de opciones...";
 			break;
 		case 7:
-			cout << "\nRegresando al menú de opciones...";
+			cout << "\nRegresando al menú principal...";
 			break;
 		default:
-			cout << "Error. Ingrese un indice valido\n" << endl;
+			cout << "Error. Ingrese un indice valido." << endl;
 			break;
 		}
 	} while (option != 7);
@@ -188,7 +187,7 @@ void Music_Player::clearScreen(int num)
 void Music_Player::pressEnterToContinue()
 {
 	cin.clear();
-	cin.ignore(1000, '\n');
+	// cin.ignore(1000, '\n');
 	cout << "\nPresiona enter para continuar...";
 	cin.get();
 }

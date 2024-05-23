@@ -22,13 +22,21 @@ void Playlist::addSong(const string song, const string artist)
 		newNode->next = nullptr;
 	}
 	else {
+		/*
 		newNode->prev = tail;
 		tail->next = newNode;
 		tail = newNode;
 		tail->next = nullptr;
-		/* Elementos lista circular */
+		/* Elementos lista circular
 		newNode->next = head;
 		head->prev = newNode; // Revisar si es correcto para la lista circular
+		*/
+
+		newNode->prev = tail;
+		tail->next = newNode;
+		newNode->next = head;
+		head->prev = newNode;
+		tail = newNode;
 	}
 }
 
@@ -60,8 +68,8 @@ void Playlist::remove(string song)
 	int existSong = search(song);
 
 	if (head == nullptr) {
-		cout << "La playlist esta vacia. No se puede eliminar niguna canción" << endl;
-		cout << "Regresando al menu principal...";
+		cout << "\nLa playlist esta vacia. No se puede eliminar niguna canción" << endl;
+		cout << "\nRegresando al menu principal...";
 	}
 	else {
 		newNode = head;
@@ -91,19 +99,17 @@ void Playlist::remove(string song)
 void Playlist::show()
 {
 	if (head == nullptr) {
-		cout << "La playlist esta vacia" << endl;
+		cout << "\nLa playlist esta vacia" << endl;
 	}
 	else {
 		newNode = head;
-		cout << "\nCanciones dentro de esta playlist:" << endl;
-		while (newNode != nullptr) {
+		cout << "\nCanciones dentro de esta playlist:\n" << endl;
+		do
+		{
 			cout << "Cancion: " << newNode->songName << endl;
 			cout << "Artista: " << newNode->artist << "\n" << endl;
-			if (newNode == tail) {
-				break;
-			}
 			newNode = newNode->next;
-		}
+		} while (newNode != head);
 	}
 }
 
