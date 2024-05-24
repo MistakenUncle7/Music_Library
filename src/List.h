@@ -9,12 +9,12 @@ using namespace std;
 class Playlist
 {
 public:
-	Playlist() : head(nullptr), tail(nullptr), newNode(nullptr) {}
-	Playlist(string playlistTitle) : playlistTitle(playlistTitle), head(nullptr), tail(nullptr), newNode(nullptr) {}
+	Playlist() : head(nullptr), tail(nullptr), node(nullptr) {}
+	Playlist(string playlistTitle) : playlistTitle(playlistTitle), head(nullptr), tail(nullptr), node(nullptr) {}
 	~Playlist();
 	void addSong(const string, const string);
-	int search(string);
-	void remove(string);
+	int search(const string);
+	void remove(const string);
 	void show();
 
 	/* Setters and getters */
@@ -23,5 +23,5 @@ private:
 	string playlistTitle;
 	Track* head;
 	Track* tail;
-	Track* newNode;
+	Track* node;
 };

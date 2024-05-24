@@ -130,7 +130,7 @@ void Music_Player::playlistOptions(Library& library, int playlistIndex)
 		switch (option)
 		{
 		case 1:
-			cout << "Ingrese el nombre de la canción que desea agregar: ";
+			cout << "\nIngrese el nombre de la canción que desea agregar: ";
 			getline(cin, songName);
 			cout << "Ingrese el nombre del artista: ";
 			getline(cin, artist);
