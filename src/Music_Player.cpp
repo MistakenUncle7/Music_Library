@@ -12,7 +12,7 @@ void Music_Player::run()
 	string playlistTitle;
 	int option;
 
-	cout << "\n||| Bienvenido al reproductor de Música |||" << endl;
+	cout << "\n||| Bienvenido a tu biblioteca de música|||" << endl;
 	cout << "\nIngresando al menú principal...";
 
 	do
