@@ -54,8 +54,14 @@ void Library::insert(Playlist newPlaylist)
 
 void Library::printPlaylists()
 {
-	for (int i = 0; i < getSize(); i++) {
-		cout << i + 1 << ". " << library[i].getPlaylistTitle() << endl;
+	if (getSize() == 0) {
+		cout << "\nNo se ha creado ninguna playlist." << endl;
+	}
+	else {
+		cout << "\nPlaylists disponibles: " << endl;
+		for (int i = 0; i < getSize(); i++) {
+			cout << i + 1 << ". " << library[i].getPlaylistTitle() << endl;
+		}
 	}
 }
 
