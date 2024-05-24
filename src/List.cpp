@@ -62,39 +62,59 @@ void Playlist::remove(const string song)
 	int existSong = search(song);
 
 	if (existSong == -1) {
-		cout << "\nLa playlist esta vacía. No se puede eliminar niguna canción" << endl;
+		cout << "\nLa playlist esta vacía. No se puede eliminar niguna canción." << endl;
 		cout << "\nRegresando al menú principal...";
 	}
 	else if(existSong == 1) {
 		cout << "\nLa canción " << song << " no se encuentra en la playlist" << endl;
+		cout << "\nRegresando al menú principal...";
 	}
 	else {
 		Track* temp = new Track;
 		Track removed;
 		node = head;
-		while (node != tail) {
+		do
+		{
 			if (node->songName == song) {
-				// Agregar un caso si se elimina la ultima cancion
 				removed.songName = node->songName;
 				removed.artist = node->artist;
-
-				temp = node;
-				node->prev = node->next;
-				node->next = temp->prev;
-				delete temp;
-				/*
-				newNode = newNode->prev;
-				newNode->next = temp->next;
-				newNode = temp->next;
-				newNode->prev = temp->prev;
-				delete temp;*/
 
 				cout << "\nCanción eliminada: " << endl;
 				cout << "Nombre: " << removed.songName << endl;
 				cout << "Artista: " << removed.artist << endl;
+
+				if (node == head && node == tail) {
+					head = nullptr;
+					tail = nullptr;
+					delete node;
+					return;
+				}
+				else if (node == head) {
+					temp = node;
+					node = temp->next;
+					node->prev = temp->prev;
+					head = node;
+					tail->next = head;
+					delete temp;
+				}
+				else if (node == tail) {
+					tail = node->prev;
+					tail->next = head;
+					head->prev = tail;
+					delete node;
+					return;
+				}
+				else {
+					temp = node;
+					node = temp->prev;
+					node->next = temp->next;
+					node = temp->next;
+					node->prev = temp->prev;
+					delete temp;
+				}
 			}
 			node = node->next;
-		}
+		} while (node != head);
 	}
 }
 

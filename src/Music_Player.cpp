@@ -83,7 +83,7 @@ int Music_Player::printInitialMenu()
 	if (cin.fail()){
 		cin.clear();
 		cin.ignore(1000, '\n');
-		cout << "Error. Ingrese una opcion valida\n" << endl;
+		cout << "\nError. Ingrese una opcion valida." << endl;
 	}
 	else {
 		return option;
@@ -165,7 +165,7 @@ void Music_Player::playlistOptions(Library& library, int playlistIndex)
 			cout << "\nRegresando al menú principal...";
 			break;
 		default:
-			cout << "Error. Ingrese un indice valido." << endl;
+			cout << "\nError. Ingrese un indice valido." << endl;
 			break;
 		}
 	} while (option != 5);
