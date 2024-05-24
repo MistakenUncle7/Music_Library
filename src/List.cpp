@@ -15,11 +15,6 @@ void Playlist::addSong(const string song, const string artist)
 	newNode->songName = song;
 	newNode->artist = artist;
 
-	/*
-	node = new Track;
-	node->songName = song;
-	node->artist = artist;*/
-
 	int existSong = search(song);
 	if (existSong == 0) {
 		cout << "\nLa canción " << song << " ya se encuentra en la playlist." << endl;
@@ -30,14 +25,6 @@ void Playlist::addSong(const string song, const string artist)
 			tail = newNode;
 			newNode->prev = newNode;
 			newNode->next = newNode;
-			/*
-			head = node;
-			tail = node;
-			node->prev = node;
-			node->next = node;*/
-			/*
-			newNode->prev = nullptr;
-			newNode->next = nullptr;*/
 		}
 		else {
 			newNode->prev = tail;
@@ -45,22 +32,6 @@ void Playlist::addSong(const string song, const string artist)
 			tail->next = newNode;
 			head->prev = newNode;
 			tail = newNode;
-			/*
-			newNode->prev = tail;
-			tail->next = newNode;
-			tail = newNode;
-			tail->next = nullptr;
-			/* Elementos lista circular
-			newNode->next = head;
-			head->prev = newNode; // Revisar si es correcto para la lista circular
-			*/
-
-			/*
-			node->prev = tail;
-			node->next = head;
-			tail->next = node;
-			head->prev = node;
-			tail = node;*/
 		}
 	}
 }
